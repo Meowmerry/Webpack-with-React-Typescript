@@ -2,6 +2,11 @@
 
 
 ## Summary
+<img
+  src="./assets/using-webpack-with-react-typescript.png"
+  alt="Webpack with React Typescript"
+  title="Webpack with React Typescript"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
 
 
 
