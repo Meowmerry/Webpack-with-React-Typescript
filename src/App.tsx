@@ -1,6 +1,11 @@
-import React from "react";
+import React ,{FC} from "react";
+import { NavBar } from "./components/index";
 const App: React.FC = (props) => {
-  return <div>Webpack is cool!</div>;
+  return (
+    <>
+      <NavBar/>
+    </>
+  )
 };
 
 export default App;

@@ -2,7 +2,7 @@ const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const isProd = process.env.NODE_ENV === "production";
-
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const config = {
   mode: isProd ? "production" : "development",
   entry: {
@@ -18,9 +18,24 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.html$/,
+        loader: "html-loader",
+      },
+      {
         test: /\.tsx?$/,
-        use: "babel-loader",
-        exclude: /node_modules/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
+      },
+      {
+        test: /\.(jpg|png|jpeg)$/,
+        use: {
+          loader: "url-loader",
+        },
       },
     ],
   },
